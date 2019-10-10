@@ -48,6 +48,16 @@
 	<!-- 서블릿 컨테이너의 디폴트 서블릿 위임 핸들러 -->
 	<mvc:default-servlet-handler/>
 	<!-- Interceptor -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/user/auth"/>
+			<bean class="kr.co.itcen.jblog3.security.LoginInterceptor"/>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/user/logout"/>
+			<bean class="kr.co.itcen.jblog3.security.LogoutInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 	<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 	<mvc:interceptors>
 		 
@@ -60,10 +70,7 @@
 			<mvc:mapping path="/user/auth"/>
 			<bean class="kr.co.itcen.jblog3.security.LoginInterceptor"/>
 		</mvc:interceptor>
-		<mvc:interceptor>
-			<mvc:mapping path="/user/logout"/>
-			<bean class="kr.co.itcen.jblog3.security.LogoutInterceptor"/>
-		</mvc:interceptor>
+		
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
 			<mvc:exclude-mapping path="/user/auth"/>

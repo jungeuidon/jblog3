@@ -23,15 +23,15 @@ import kr.co.itcen.jblog3.vo.UserVo;
 public class UserController {
 
 	@Autowired
-	@Qualifier("userService")
+//	@Qualifier("userService")   //객체가 다르기때문에 굳이 안써줘도된다.
 	private UserService userService;
 	
 	@Autowired
-	@Qualifier("blogService")
+//	@Qualifier("blogService")   //객체가 다르기때문에 굳이 안써줘도된다.	
 	private BlogService blogService;
 	
 	@Autowired
-	@Qualifier("categoryService")
+//	@Qualifier("categoryService")   //객체가 다르기때문에 굳이 안써줘도된다.
 	private CategoryService categoryService;
 	
 	
@@ -63,13 +63,14 @@ public class UserController {
 		return "user/joinsuccess";
 	}
 	
-	@RequestMapping("/login")
+	@RequestMapping(value="/login")
 	public String login() {
 		return "user/login";
 	}
 	
+	
 	@RequestMapping("/logout")
 	public String logout() {
-		return "redirect:";
+		return "redirect:/main";
 	}
 }

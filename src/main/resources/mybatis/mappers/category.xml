@@ -4,11 +4,28 @@
 	
 	<insert id="joinFirst" parameterType="categoryvo">
 		<![CDATA[
-			insert into category values(null, "미분류", "분류되지 않은 카테고리 입니다.", now(), #{id})
+			insert into category values(null, "기본", "기본 카테고리 입니다.", now(), #{id})
 		]]>
 	</insert>
 	
+	<insert id="insert" parameterType="categoryvo">
+		<![CDATA[
+			insert into category values(null, #{name}, #{info}, now(), #{id})
+		]]>
+	</insert>
 	
-
+	<select id="getList" parameterType="String" resultType="categoryvo">
+		<![CDATA[
+			select category.no as no, category.name as name, category.info as info, category.id as id, count(post.category_no) as count 
+			from category 
+			left join post 
+			on category.no=post.category_no 
+			where category.id= #{userId} 
+			group by category.no 
+			order by category.no;
+		]]>
+	</select>
+	
+	
 </mapper>
 

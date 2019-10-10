@@ -23,4 +23,9 @@ public class UserDao {
 		return result;
 	}
 
+	public UserVo getUser(UserVo vo) {
+		UserVo result = sqlSession.selectOne("user.getUser", vo);
+		return result;
+	}
+
 }

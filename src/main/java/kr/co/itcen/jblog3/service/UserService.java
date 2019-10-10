@@ -14,13 +14,15 @@ public class UserService {
 	UserDao userDao;
 	
 	public void join(UserVo vo) {
-		
 		userDao.insert(vo);
 	}
 
 	public Boolean checkId(String id) {
-		
 		return userDao.checkId(id) != null;
+	}
+
+	public UserVo getUser(UserVo vo) {
+		return userDao.getUser(vo);
 	}
 	
 

@@ -4,15 +4,22 @@
 	
 	<insert id="insert" parameterType="uservo">
 		<![CDATA[
-			insert into member values(#{id}, #{name}, #{password}, now())
+			insert into users values(#{id}, #{name}, #{password}, now())
 		]]>
 	</insert>
 	
 	<select id="check" parameterType="string" resultType="uservo">
 	<![CDATA[
-			select id, password from member where id = #{id}
+			select id, password from users where id = #{id}
 		]]>
 	</select>
+
+	<select id="getUser" parameterType="uservo" resultType="uservo">
+	<![CDATA[
+			select id, name, password, joindate from users where id = #{id } and password = #{password }
+		]]>
+	</select>
+
 
 </mapper>
 

@@ -11,21 +11,10 @@
 </head>
 <body>
 	<div id="container">
-		<div id="header">
-			<h1>Spring 이야기</h1>
-			<ul>
-				<li><a href="${pageContext.request.contextPath}/user/login">로그인</a></li>
-				<li><a href="${pageContext.request.contextPath}/user/logout">로그아웃</a></li>
-				<li><a href="${pageContext.request.contextPath}/blog/manage">블로그 관리</a></li>
-			</ul>
-		</div>
+		<c:import url="/WEB-INF/views/includes/blogheader.jsp"/>
 		<div id="wrapper">
 			<div id="content" class="full-screen">
-				<ul class="admin-menu">
-					<li class="selected">기본설정</li>
-					<li><a href="${pageContext.request.contextPath}/blog/category">카테고리</a></li>
-					<li><a href="${pageContext.request.contextPath}/blog/write">글작성</a></li>
-				</ul>
+				<c:import url="/WEB-INF/views/includes/blogloginheader.jsp"/>
 				<form action="" method="post">
 	 		      	<table class="admin-config">
 			      		<tr>
