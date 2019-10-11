@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!doctype html>
 <html>
@@ -15,26 +16,30 @@
 		<div id="wrapper">
 			<div id="content" class="full-screen">
 				<c:import url="/WEB-INF/views/includes/blogloginheader.jsp"/>
-				<form action="" method="post">
+				<form:form
+				 modelAttribute="blogVo"
+				 action="${pageContext.request.contextPath}/${authUser.id}/manage" method="post"
+				 enctype="multipart/form-data">
 	 		      	<table class="admin-config">
 			      		<tr>
 			      			<td class="t">블로그 제목</td>
-			      			<td><input type="text" size="40" name="title"></td>
+			      			<td><form:input path="title" /></td>
+			      			<!-- <td><input type="text" size="40" name="title"></td> -->
 			      		</tr>
 			      		<tr>
 			      			<td class="t">로고이미지</td>
-			      			<td><img src="${pageContext.request.contextPath}/assets/images/spring-logo.jpg"></td>      			
+			      			<td><img src="${pageContext.request.contextPath}/assets/images/${blogVo.logo}"></td>      			
 			      		</tr>      		
 			      		<tr>
 			      			<td class="t">&nbsp;</td>
-			      			<td><input type="file" name="logo-file"></td>      			
+			      			<td><input type="file" name="logoFile"></td>		
 			      		</tr>           		
 			      		<tr>
 			      			<td class="t">&nbsp;</td>
 			      			<td class="s"><input type="submit" value="기본설정 변경"></td>      			
 			      		</tr>           		
 			      	</table>
-				</form>
+				</form:form>
 			</div>
 		</div>
 		<div id="footer">

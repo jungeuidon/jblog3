@@ -30,4 +30,13 @@ public class BlogDao {
 		return vo;
 	}
 
+	public Boolean updateBlog(String userId, BlogVo blogVo) {
+		Map<String, Object> map =new HashMap<String, Object>();
+		map.put("userId", userId);
+		map.put("title", blogVo.getTitle());
+		map.put("logo", blogVo.getLogo());
+		int cnt = sqlSession.update("blog.updateBlog", map);
+		return cnt ==1;
+	}
+
 }

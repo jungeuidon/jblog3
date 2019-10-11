@@ -81,7 +81,7 @@
 		
 	</mvc:interceptors>
 	-->
-	
+	<mvc:resources location="file:/jblog3Uploads/" mapping="/assets/images/**"/>
 	
 	<!-- View Resolver -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -102,9 +102,9 @@
 	</bean>
 		
 	<!-- Autowired 여러개를 위한 Qualifired -->
-	<bean id="userService" class="kr.co.itcen.jblog3.service.UserService"/>
+	<!-- <bean id="userService" class="kr.co.itcen.jblog3.service.UserService"/>
 	<bean id="blogService" class="kr.co.itcen.jblog3.service.BlogService"/>
-	<bean id="categoryService" class="kr.co.itcen.jblog3.service.CategoryService"/>
+	<bean id="categoryService" class="kr.co.itcen.jblog3.service.CategoryService"/> -->
 
 	<context:annotation-config />
 	<context:component-scan base-package="kr.co.itcen.jblog3.controller, kr.co.itcen.jblog3.exception" />

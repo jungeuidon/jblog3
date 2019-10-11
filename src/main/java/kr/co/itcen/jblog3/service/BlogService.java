@@ -6,10 +6,12 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import kr.co.itcen.jblog3.repository.BlogDao;
 import kr.co.itcen.jblog3.repository.CategoryDao;
 import kr.co.itcen.jblog3.repository.PostDao;
+import kr.co.itcen.jblog3.vo.BlogVo;
 import kr.co.itcen.jblog3.vo.PostVo;
 import kr.co.itcen.jblog3.vo.UserVo;
 
@@ -36,6 +38,10 @@ public class BlogService {
 		map.put("categoryList", categoryDao.getCategory(userId)); // 카테고리목록
 		map.put("blogVo", blogDao.getVo(userId)); //타이틀 , 로고 
 		return map;
+	}
+
+	public void updateBlog(String userId, BlogVo blogVo) {
+		blogDao.updateBlog(userId, blogVo);
 	}
 
 

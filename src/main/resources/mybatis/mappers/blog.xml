@@ -17,6 +17,13 @@
 	 ]]>	
 	</select>
 	
+	<select id="updateBlog" parameterType="map">
+	<![CDATA[
+		update blog set title = #{title }, logo = #{logo}
+		where id=#{userId}
+	 ]]>	
+	</select>
+	
 	<select id="allPostList" parameterType="string" resultType="postvo">
 	<![CDATA[
 		select post.title, post.contents, date_format(post.postdate, "%Y년 %m월 %d일") as postdate 
