@@ -81,7 +81,7 @@
 		
 	</mvc:interceptors>
 	-->
-	<mvc:resources location="file:/jblog3Uploads/" mapping="/assets/images/**"/>
+	<mvc:resources location="file:/jblog3Uploads/" mapping="/assets/logoimages/**"/>
 	
 	<!-- View Resolver -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

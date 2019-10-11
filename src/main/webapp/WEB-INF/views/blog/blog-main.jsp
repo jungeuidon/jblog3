@@ -79,7 +79,7 @@
 
 		<div id="extra">
 			<div class="blog-logo">
-				<img src="${pageContext.request.contextPath}/assets/images/${blogVo.logo}" style="width:180px;height:150px">
+				<img src="${pageContext.request.contextPath}/assets/logoimages/${blogVo.logo}" style="width:180px;height:150px">
 			</div>
 		</div>
 
