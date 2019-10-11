@@ -2,7 +2,8 @@ package kr.co.itcen.jblog3.vo;
 
 public class PostVo {
 
-	private int no, categoryNo;
+	private int no;
+	private Long categoryNo;
 	private String title, contents, postdate;
 	public int getNo() {
 		return no;
@@ -10,10 +11,10 @@ public class PostVo {
 	public void setNo(int no) {
 		this.no = no;
 	}
-	public int getCategoryNo() {
+	public Long getCategoryNo() {
 		return categoryNo;
 	}
-	public void setCategoryNo(int categoryNo) {
+	public void setCategoryNo(Long categoryNo) {
 		this.categoryNo = categoryNo;
 	}
 	public String getTitle() {
@@ -33,6 +34,11 @@ public class PostVo {
 	}
 	public void setPostdate(String postdate) {
 		this.postdate = postdate;
+	}
+	@Override
+	public String toString() {
+		return "PostVo [no=" + no + ", categoryNo=" + categoryNo + ", title=" + title + ", contents=" + contents
+				+ ", postdate=" + postdate + "]";
 	}
 	
 	

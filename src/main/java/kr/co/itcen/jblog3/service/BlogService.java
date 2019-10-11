@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.itcen.jblog3.repository.BlogDao;
 import kr.co.itcen.jblog3.repository.CategoryDao;
-import kr.co.itcen.jblog3.vo.CategoryVo;
+import kr.co.itcen.jblog3.repository.PostDao;
 import kr.co.itcen.jblog3.vo.PostVo;
 import kr.co.itcen.jblog3.vo.UserVo;
 
@@ -22,32 +22,24 @@ public class BlogService {
 	@Autowired
 	CategoryDao categoryDao;
 	
+	@Autowired
+	PostDao postDao;
+	
 	//회원가입시 블로그생성
 	public void join(UserVo vo) {
-
 		blogDao.insert(vo);
 	}
-	
-//	//카테고리 목록 가져오기
-//	public List<CategoryVo> getCategory(String userId) {
-//		return categoryDao.getCategory(userId);
-//	}
 
-	//글쓰기
-	public void insertPost(PostVo postVo) {
-		
-		blogDao.insertPost(postVo);
+	//blog-main 에서 카테고리목록, 블로그 타이틀,로고 가져오기
+	public Map<String, Object> getBlogInfo(String userId) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("categoryList", categoryDao.getCategory(userId)); // 카테고리목록
+		map.put("blogVo", blogDao.getVo(userId)); //타이틀 , 로고 
+		return map;
 	}
 
-//	public Map<String, Object> getCatePost(Long categoryNo, Long postNo) {
-//		
-//		Map<String, Object> map = new HashMap<String, Object>();
-//		
-//		map.put("", blogDao.);
-//		
-//		
-//		return null;
-//	}
+
+	
 	
 	
 

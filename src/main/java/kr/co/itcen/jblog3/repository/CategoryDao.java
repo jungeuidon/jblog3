@@ -25,9 +25,7 @@ public class CategoryDao {
 	
 	//카테고리 목록
 	public List<CategoryVo> getCategory(String userId) {
-		System.out.println("카테고리목록");
 		List<CategoryVo> list = sqlSession.selectList("category.getList", userId);
-		System.out.println(list);
 		return list;
 	}
 	
