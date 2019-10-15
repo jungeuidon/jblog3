@@ -37,4 +37,9 @@ public class CategoryService {
 		categoryDao.insert(categoryVo);
 	}
 
+	public void delCategory(String userId, int no) {
+		
+		categoryDao.delete(userId, no);
+	}
+
 }

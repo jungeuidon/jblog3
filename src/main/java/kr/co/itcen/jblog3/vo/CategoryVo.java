@@ -43,6 +43,12 @@ public class CategoryVo {
 		this.count = count;
 	}
 	
+	@Override
+	public String toString() {
+		return "CategoryVo [no=" + no + ", name=" + name + ", id=" + id + ", info=" + info + ", date=" + date
+				+ ", count=" + count + "]";
+	}
+	
 	
 
 	

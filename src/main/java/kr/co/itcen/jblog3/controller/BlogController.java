@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.co.itcen.jblog3.security.AuthUser;
@@ -111,6 +112,7 @@ public class BlogController {
 		
 		
 		
+		
 		if(!multipartFile.isEmpty()) {
 			String url = fileuploadService.restore(multipartFile);
 			blogVo.setLogo(url);
@@ -124,30 +126,26 @@ public class BlogController {
 	}
 	
 	//카테고리폼으로 이동
-	@RequestMapping("/category")
+	@RequestMapping(value="/category", method=RequestMethod.GET)
 	public String category(@AuthUser UserVo authUser,
 						   @PathVariable(value="userId") String userId,
 						   @ModelAttribute CategoryVo categoryVo,
+//						   @RequestParam("d") String userId,
 						   Model model) {
 		
+		
 		Map<String, Object> map = new HashMap<String, Object>();
+		map.putAll(blogService.getBlogInfo(userId)); //카테고리 목록 , 블로그로고 이미지
 		map.putAll(categoryService.categoryInfo(userId));
 		model.addAllAttributes(map);
 		
 		return "blog/blog-admin-category";
 	}
 	
-	//카테고리 생성
-	@RequestMapping(value="/categoryInsert", method=RequestMethod.POST)
-	public String categoryInsert(@AuthUser UserVo authUser,
-								   @PathVariable(value="userId") String userId,
-								   @ModelAttribute CategoryVo categoryVo,
-								   Model model) {
-		
-		categoryVo.setId(userId);
-		categoryService.categoryInsert(categoryVo);
-		return "redirect:/"+ userId  +"/category";
-	}
+	
+	
+	
+	
 	
 	//글쓰기폼으로 이동
 	@RequestMapping("/write")

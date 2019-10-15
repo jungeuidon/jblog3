@@ -105,7 +105,7 @@
 	<!-- <bean id="userService" class="kr.co.itcen.jblog3.service.UserService"/>
 	<bean id="blogService" class="kr.co.itcen.jblog3.service.BlogService"/>
 	<bean id="categoryService" class="kr.co.itcen.jblog3.service.CategoryService"/> -->
-
+	 
 	<context:annotation-config />
 	<context:component-scan base-package="kr.co.itcen.jblog3.controller, kr.co.itcen.jblog3.exception" />
 </beans>

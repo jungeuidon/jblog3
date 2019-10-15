@@ -30,30 +30,30 @@
 							<td>${category.name }</td>
 							<td>${category.count} 개</td>
 							<td>${category.info }</td>
-							<td><img src="${pageContext.request.contextPath}/assets/images/delete.jpg"></td>
+							<td><a href="#" class="delCategory" id ="${category.no}"><img src="${pageContext.request.contextPath}/assets/images/delete.jpg"></a></td>
 					</tr>  
 						</c:forEach>				  
 				</table>
-      	
+				<div id="cartlist"></div>
       			<h4 class="n-c">새로운 카테고리 추가</h4>
       			<form:form
-      			modelAttribute="categoryVo" method="post" action="${pageContext.request.contextPath}/${authUser.id }/categoryInsert">
+      			modelAttribute="categoryVo" id="categoryForm">
 		      	<table id="admin-cat-add">
 		      		<tr>
 		      			<td class="t">카테고리명</td>
 		      			<td><label class="block-label" for="name" ></label>
-			      		<form:input path="name" /></td>
+			      		<form:input path="name"/></td>
 		      			<!-- <td><input type="text" name="name"></td> -->
 		      		</tr>
 		      		<tr>
 		      			<td class="t">설명</td>
 		      			<td><label class="block-label" for="info" ></label>
-			      		<form:input path="info" /></td>
+			      		<form:input path="info"/></td>
 		      			<!-- <td><input type="text" name="info"></td> -->
 		      		</tr>
 		      		<tr>
 		      			<td class="s">&nbsp;</td>
-		      			<td><input type="submit" value="카테고리 추가"></td>
+		      			<td><input type="button" id="categorysub" value="카테고리 추가"></td>
 		      		</tr>      		      		
 		      	</table> 
 		      	</form:form>

@@ -14,6 +14,12 @@
 		]]>
 	</insert>
 	
+	<delete id="delete" parameterType="map">
+		<![CDATA[
+			delete from category where no=${no} and id=#{userId}
+		]]>
+	</delete>
+	
 	<select id="getList" parameterType="String" resultType="categoryvo">
 		<![CDATA[
 			select category.no as no, category.name as name, category.info as info, category.id as id, count(post.category_no) as count 

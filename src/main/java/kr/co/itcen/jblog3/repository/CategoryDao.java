@@ -1,6 +1,8 @@
 package kr.co.itcen.jblog3.repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,7 @@ public class CategoryDao {
 	//카테고리 목록
 	public List<CategoryVo> getCategory(String userId) {
 		List<CategoryVo> list = sqlSession.selectList("category.getList", userId);
+		
 		return list;
 	}
 	
@@ -34,6 +37,15 @@ public class CategoryDao {
 
 		int cnt = sqlSession.insert("category.insert", categoryVo);
 		
+		return cnt ==1;
+	}
+
+	public Boolean delete(String userId, int no) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("userId", userId);
+		map.put("no", no);
+		int cnt = sqlSession.delete("category.delete", map);
 		return cnt ==1;
 	}
 
