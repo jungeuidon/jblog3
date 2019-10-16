@@ -52,7 +52,7 @@ function categoryInsert(){
 	var name = $("#name").val();
 	var info = $("#info").val();
 	
-	alert("categoryInsert" + userId + " "+ name + " " + info)
+//	alert("categoryInsert" + userId + " "+ name + " " + info)
 	$.ajax({
 		url: "/jblog3/api/category/categoryInsert",
 		type: "post",
@@ -76,7 +76,7 @@ function categoryDel(){
 	var userId = $("#userId").val();
 	var clickObj = $(this);
 	var no = clickObj.attr("id");
-	alert(no+ " " + userId);
+//	alert(no+ " " + userId);
 	
 	$.ajax({
 		url: "/jblog3/api/category/categoryDel",
@@ -100,7 +100,7 @@ function categoryList(userId){
 	
 	var theDiv = $("#cartlist");
 //	var theDiv = document.getElementById("cartlist");
-	alert("categoryList 유저아이디 : " + userId);
+//	alert("categoryList 유저아이디 : " + userId);
 	$.ajax({
 
 		url: "/jblog3/api/category/categoryList",

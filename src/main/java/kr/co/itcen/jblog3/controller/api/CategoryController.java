@@ -56,7 +56,7 @@ public class CategoryController {
 	public String categoryDelete(@RequestParam(value="userId") String userId,
 								@RequestParam(value="no") int no) {
 		
-		System.out.println("userId" + userId + "no " + no);
+		System.out.println("userId " + userId + " no " + no);
 		categoryService.delCategory(userId, no);
 		return "success";
 	}
